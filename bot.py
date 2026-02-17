@@ -22,7 +22,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-CHANNEL_ID = 1472990294524952855
+CHANNEL_ID = 1472990294524952855  # Twoje ID
 
 async def init_db():
     async with aiosqlite.connect('tasks.db') as db:
@@ -42,7 +42,7 @@ def generate_calendar():
     cal_text = calendar.month(today.year, today.month)
     day_str = f"[{today.day:2d}]"
     cal_highlighted = cal_text.replace(f' {today.day:2d} ', f' {day_str} ')
-    lines = cal_highlighted.split('\n')
+    lines = cal_highlighted.split('\n')  # POPRAWIONE
     framed = "┌" + "─" * 24 + "┐\n"
     for line in lines:
         framed += f"│{line[:24]:<24}│\n"
@@ -64,7 +64,7 @@ async def zadania(ctx):
     if not rows:
         await ctx.send("Brak zadań! ✅")
         return
-    lista = "\n".join([f"`ID{row[0]}`: **{row[1]}** ({row[2]})" for row in rows])
+    lista = "\n".join([f"`ID{row[0]}`: **{row[1]}** ({row[2]})" for row in rows])  # POPRAWIONE
     embed = discord.Embed(title="📝 Zadania", description=lista, color=0x9b59b6)
     await ctx.send(embed=embed)
 
@@ -101,17 +101,7 @@ async def check_reminders():
 
 if __name__ == "__main__":
     threading.Thread(target=run_flask, daemon=True).start()
-    bot.run(os.getenv('TOKEN'))  # TYLKO TOKEN!
-
-# DEBUG TOKEN
-token = os.getenv('TOKEN')
-print(f"🔍 TOKEN: {'OK' if token else 'BRAK!!!'} (długość: {len(token) if token else 0})")
-if not token:
-    print("❌ STOP - brak tokenu w Railway!")
-    exit(1)
-
-channel_id = os.getenv('CHANNEL_ID')
-print(f"🔍 CHANNEL_ID: {channel_id}")
-
-bot.run(token)
-
+    
+    # *** WKLEJ TUTAJ SWÓJ TOKEN Z DEVELOPER PORTAL ***
+    TOKEN = "46pg8xTBirrDYrsmiNJgxkdHmFXVeohU"  # ← ZMIEŃ TO!
+    bot.run(TOKEN)

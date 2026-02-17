@@ -103,5 +103,5 @@ if __name__ == "__main__":
     threading.Thread(target=run_flask, daemon=True).start()
     
     # *** WKLEJ TUTAJ SWÓJ TOKEN Z DEVELOPER PORTAL ***
-    TOKEN = "46pg8xTBirrDYrsmiNJgxkdHmFXVeohU"  # ← ZMIEŃ TO!
+    TOKEN = "9e95b6bb9494be1347d094bc85fb8aaf6fd47765294defa0caa7c08da48c2811"  # ← ZMIEŃ TO!
     bot.run(TOKEN)

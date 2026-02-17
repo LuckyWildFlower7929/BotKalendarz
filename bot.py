@@ -22,7 +22,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-CHANNEL_ID = int(os.getenv('CHANNEL_ID', 123456789))
+CHANNEL_ID = int(os.getenv('CHANNEL_ID', 1472990294524952855))
 
 async def init_db():
     async with aiosqlite.connect('tasks.db') as db:

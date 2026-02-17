@@ -22,7 +22,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-CHANNEL_ID = int(os.getenv('CHANNEL_ID', 1472990294524952855))
+CHANNEL_ID = 1472990294524952855
 
 async def init_db():
     async with aiosqlite.connect('tasks.db') as db:
@@ -101,7 +101,7 @@ async def check_reminders():
 
 if __name__ == "__main__":
     threading.Thread(target=run_flask, daemon=True).start()
-    bot.run(os.getenv('TOKEN'))
+    bot.run(os.getenv('TOKEN'))  # TYLKO TOKEN!
 
 # DEBUG TOKEN
 token = os.getenv('TOKEN')

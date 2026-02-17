@@ -19,8 +19,9 @@ def run_flask():
     app.run(host='0.0.0.0', port=port)
 
 intents = discord.Intents.default()
-intents.message_content = True
+# intents.message_content = True  # ❌ WYŁĄCZ TO!
 bot = commands.Bot(command_prefix='!', intents=intents)
+
 
 CHANNEL_ID = 1472990294524952855  # Twoje ID
 

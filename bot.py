@@ -102,3 +102,16 @@ async def check_reminders():
 if __name__ == "__main__":
     threading.Thread(target=run_flask, daemon=True).start()
     bot.run(os.getenv('TOKEN'))
+
+# DEBUG TOKEN
+token = os.getenv('TOKEN')
+print(f"🔍 TOKEN: {'OK' if token else 'BRAK!!!'} (długość: {len(token) if token else 0})")
+if not token:
+    print("❌ STOP - brak tokenu w Railway!")
+    exit(1)
+
+channel_id = os.getenv('CHANNEL_ID')
+print(f"🔍 CHANNEL_ID: {channel_id}")
+
+bot.run(token)
+
